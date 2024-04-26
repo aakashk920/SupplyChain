@@ -61,5 +61,6 @@ Please ensure that your contributions adhere to the existing coding style and co
 ## Screenshot
 
 ![image](https://github.com/aakashk920/InventoryMngtLWC/assets/57090466/bfa4d42a-7787-4abe-bf49-fb483e9db3d7)
-![tempsnip](https://github.com/aakashk920/InventoryMngtLWC/assets/57090466/e1e472eb-c3f8-4d0b-8157-325eca4f5553)
+![tempsnip](https://github.com/aakashk920/InventoryMngtLWC/assets/57090466/7fbbad96-cd85-42da-b246-0900bea7643f)
+
 
