@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Threshold Alerts" icon-name="utility:error">
+        <div class="slds-m-around_medium">
+            <template if:true={alerts}>
+                <ul class="slds-list_vertical slds-has-dividers_around_space">
+                    <template for:each={alerts} for:item="alert">
+                        <li key={alert.id} class="slds-item"><p>{alert.productName} : {alert.message}</p></li>
+                    </template>
+                </ul>
+            </template>
+            <template if:true={isLoading}>
+                <div class="slds-text-color_default">Checking Inventory......</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

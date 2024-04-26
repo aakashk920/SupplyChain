@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Inventory Tracker" icon-name="standard:inventory">
+        <div class="slds-m-around-medium">
+            <template if:true={inventoryItems}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Product Name">Product Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Quantity">Quantity</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={inventoryItems} for:item="item">
+                            <tr key={item.id} class="slds-hint-parent">
+                                <td data-label="Product Name">
+                                    <div class="slds-truncate" title={item.name}>{item.name}</div>
+                                </td>
+                                <td data-label="Quantity">
+                                    <div class="slds-truncate" title={item.name}>{item.quantity}</div>
+                                </td>
+                            </tr>
+
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">{error}</div>
+            </template>
+            <template if:true={isLoading}>
+                <div class="slds-text-color_default">Loading inventory data...</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
