@@ -1,26 +1,26 @@
 public with sharing class InventoryController {
-    @AuraEnabled (cacheable=true)
-    public static List<InventoryItem> getInventoryItems(){
-        List<InventoryItem> inventoryItems=new List<InventoryItem>();
-
-        inventoryItems.add(new InventoryItem('Product Z', 50));
-        inventoryItems.add(new InventoryItem('Product X', 50));
-        inventoryItems.add(new InventoryItem('Product Y', 7));
-        inventoryItems.add(new InventoryItem('Product D', 120));
-        inventoryItems.add(new InventoryItem('Product E', 80));
-        inventoryItems.add(new InventoryItem('Product F', 75));
-        inventoryItems.add(new InventoryItem('Product F', 60));
+    @AuraEnabled(cacheable=true)
+    public static List<InventoryItems> getInventoryItems(){
+       List<InventoryItems> inventoryItems = new List<InventoryItems>();
+       List<inventory_Item__c> items = [SELECT Name, Quantity_Available__c, ThreshHold_Level__c FROM inventory_Item__c];
+        for (inventory_Item__c item : items) {
+            inventoryItems.add(new InventoryItems(item.Name, item.Quantity_Available__c, item.ThreshHold_Level__c));
+        }
         return inventoryItems;
     }
 
-    public class InventoryItem {
-        @AuraEnabled 
+    public class InventoryItems {
+        @AuraEnabled
         public String name;
         @AuraEnabled
-        public Integer quantity;
-        public InventoryItem(String name, Integer quantity){
-            this.name=name;
-            this.quantity=quantity;
+        public Decimal quantity;
+        @AuraEnabled
+        public Decimal threshHoldLevel;
+
+        public InventoryItems(String name, Decimal quantity, Decimal threshHoldLevel) {
+            this.name = name;
+            this.quantity = quantity;
+            this.threshHoldLevel = threshHoldLevel;
         }
     }
 }

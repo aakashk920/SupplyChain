@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="AI Chatbot">
+        <div class="slds-p-around_medium">
+            <div class="slds-m-bottom_medium">
+                <lightning-textarea
+                    label="Your Message"
+                    value={userMessage}
+                    onchange={handleMessageChange}
+                    placeholder="Type your message here..."
+                ></lightning-textarea>
+            </div>
+            <lightning-button
+                label="Send"
+                onclick={handleSendMessage}
+                variant="brand"
+            ></lightning-button>
+        </div>
+        <template if:true={messages}>
+            <div class="slds-p-around_medium slds-box slds-box_xx-small slds-m-top_medium">
+                <template for:each={messages} for:item="message">
+                    <p key={message.id} class={message.type}>
+                        {message.text}
+                    </p>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

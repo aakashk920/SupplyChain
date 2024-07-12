@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Order Receiver 21">
+        <div class="slds-m-around_medium">
+            <h2>Received Order Details</h2>
+            <template if:true={receivedItems}>
+                <ul>
+                    <template for:each={receivedItems} for:item="item">
+                        <li key={item.id}>{item.name} - Quantity: {item.quantity}</li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

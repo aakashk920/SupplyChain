@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Order Processing 1">
+        <div class="slds-m-around_medium">
+            <template if:true={inventoryItems}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Product</th>
+                            <th scope="col"> Available Quantity</th>
+                            <th scope="col"> Order Quantity</th>
+                            <th scope="col"> Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={inventoryItems} for:item="item">
+                            <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>
+                                    <lightning-input type="number" min="0" step="1" value={item.quantityToAdd}
+                                        onchange={handleQuantityChange} data-item-id={item.id}></lightning-input>
+                                </td>
+                                <td>
+                                    <lightning-button variant="brand" onclick={handleAddToBasket} label="Add To Basket"
+                                        data-item-id={item.id}>
+                                    </lightning-button>
+                                </td>
+                            </tr>
+                        </template>
+
+                    </tbody>
+                </table>
+            </template>
+        </div>
+        <template if:true={basketItems.length}>
+            <div class="slds-m-top_medium">
+            <lightning-card title="Order Basket @basketLenght">
+                <ul>
+                    <template for:each={basketItems} for:item="item">
+                        <li key={item.id}>{item.name}-Quantity:{item.quantity}</li>
+                    </template>
+                    <div class="slds-p-around_medium">
+                        <lightning-input label="Name" name="name" onchange={handleInputChange}></lightning-input>
+                        <lightning-input label="Phone Number" name="phoneNumber" onchange={handleInputChange}></lightning-input>
+                        <lightning-input label="Address" name="address" onchange={handleInputChange}></lightning-input>
+                    </div>
+                </ul>
+                <lightning-button variant="brand" label="Place Order" onclick={handlePlaceOrder}></lightning-button>
+            </lightning-card>
+            </div>
+            
+            <template if:true={flag}>
+                <c-order-receiver received-items={basketItems}></c-order-receiver>
+            </template>
+        </template>
+    </lightning-card>
+</template>

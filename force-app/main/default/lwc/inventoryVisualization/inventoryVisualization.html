@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Inventory Visualization">
+        <!-- Dummy date inputs for testing -->
+        <lightning-input type="date" label="Start Date" value="2024-06-01" onchange={handleDateChange}></lightning-input>
+        <lightning-input type="date" label="End Date" value="2024-06-30" onchange={handleDateChange}></lightning-input>
+        <lightning-button label="Fetch Data" onclick={fetchData}></lightning-button>
+
+        <div class="chart-container">
+            <canvas class="chart" lwc:dom="manual"></canvas>
+        </div>
+
+        <template if:true={showError}>
+            <p class="error-message">Start Date and End Date are required.</p>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Advanced Dashboard">
+        <div class="slds-m-around_medium">
+            <!-- Inventory Chart -->
+            <lightning-card title="Inventory Summary">
+                <canvas class="inventory-chart"></canvas>
+            </lightning-card>
+            
+            <!-- Order Statistics Chart -->
+            <lightning-card title="Order Summary">
+                <canvas class="order-chart"></canvas>
+            </lightning-card>
+
+            <!-- Recent Activities -->
+            <lightning-card title="Recent Activities">
+                <template if:true={recentActivities}>
+                    <ul>
+                        <template for:each={recentActivities} for:item="activity">
+                            <li key={activity.id}>{activity.type}: {activity.message}</li>
+                        </template>
+                    </ul>
+                </template>
+            </lightning-card>
+        </div>
+    </lightning-card>
+</template>

@@ -1,38 +1,38 @@
 <template>
-    <lightning-card title="Inventory Tracker" icon-name="standard:inventory">
+    <lightning-card title="Inventory Tracker" icon-name="standard_inventory">
         <div class="slds-m-around-medium">
             <template if:true={inventoryItems}>
                 <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                     <thead>
                         <tr class="slds-line-height_reset">
                             <th scope="col">
-                                <div class="slds-truncate" title="Product Name">Product Name</div>
+                                <div class="slds-truncate" title="Product Name"> Product Name</div>
                             </th>
                             <th scope="col">
-                                <div class="slds-truncate" title="Quantity">Quantity</div>
+                                <div class="slds-truncate" title="Quantity"> Quantity</div>
                             </th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <template for:each={inventoryItems} for:item="item">
                             <tr key={item.id} class="slds-hint-parent">
                                 <td data-label="Product Name">
-                                    <div class="slds-truncate" title={item.name}>{item.name}</div>
+                                    <div class="slds-truncate">{item.name}</div>
                                 </td>
                                 <td data-label="Quantity">
-                                    <div class="slds-truncate" title={item.name}>{item.quantity}</div>
+                                    <div class="slds-truncate">{item.quantity}</div>
                                 </td>
                             </tr>
-
                         </template>
                     </tbody>
                 </table>
             </template>
             <template if:true={error}>
-                <div class="slds-text-color_error">{error}</div>
+                <div class="slds-text-color_default">{error}</div>
             </template>
             <template if:true={isLoading}>
-                <div class="slds-text-color_default">Loading inventory data...</div>
+                <div class="slds-text-color_default">Loading inventory Data......</div>
             </template>
         </div>
     </lightning-card>
