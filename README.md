@@ -100,8 +100,8 @@ A view of the inventory management component showcasing real-time data visualiza
 
 ### Real Time Chatbot
 
-**Order Processing Screen**  
-Interface for managing the creation and status updates of customer orders.
+**ChatBot Screen**  
+
 ![alt text](<supply chain-2.JPG>)
 
 ## Examples
