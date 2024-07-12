@@ -96,13 +96,13 @@ The **Supply Chain Management System** is a Salesforce application designed to s
 
 **Inventory Management Screen and Product Detail Component**  
 A view of the inventory management component showcasing real-time data visualizations.
-![Inventory Management](<Supply chain management.png>) ![Inventory Management](<supply chain-1.JPG>)
+![Inventory Management](<Supply chain management.png>) 
 
 ### Real Time Chatbot
 
 **Order Processing Screen**  
 Interface for managing the creation and status updates of customer orders.
-![alt text](<supply chain-2.JPG>) ![alt text](<Supply chain management-1.png>)
+![alt text](<supply chain-2.JPG>)
 
 ## Examples
 
@@ -118,7 +118,7 @@ Product__c newProduct = new Product__c(
     Description__c = 'A sample product for testing.'
 );
 insert newProduct;
-=======
+```
 # Inventory Management Component
 
 This repository contains the source code for an Inventory Management component developed for understanding the basic concept of the Lightning web component. This component helps manage inventory-related tasks such as tracking stock levels, updating inventory, and generating alerts.
